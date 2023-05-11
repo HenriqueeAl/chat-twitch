@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+        <title>Chat</title>
+        <script>
+            function generateColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+                }
+        </script>
+    </head>
+    <body>
+        <div class="box" id="box">
+            <ul id="chat">
+                
+            </ul>
+        </div>
+    </body>
+    <script>
+        var chat = document.querySelector("#chat");
+
+        ComfyJS.onChat = (user, message, flags, self, extra) => {
+            console.log(user, message);
+            var name = document.createElement('span');
+            var msg = document.createElement('span');
+            name.classList.add('name')
+            name.innerText = `${user}: `
+            name.style.color = generateColor()
+            msg.classList.add('msg')
+            msg.innerText = `${ message}`
+            var newMessage = document.createElement("li");
+            name.appendChild(msg)
+            newMessage.appendChild(name)
+            chat.append(newMessage);
+
+            const el = document.querySelector('#box')
+            var height = el.scrollHeight;
+            el.scrollTop = height;
+        }
+
+    ComfyJS.Init("henriquee__almeida");
+    </script>
+</html>

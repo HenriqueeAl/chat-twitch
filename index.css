@@ -1,0 +1,33 @@
+*{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.box{
+    width: 350px;
+    max-width: 350px;
+    height: 500px;
+    border: 8px solid #152b3c;
+    border-radius: 0 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+.box ul{
+    list-style: none;
+    padding: 0 15px;
+}
+
+.name{
+    font-size: 1.2em;
+}
+.msg{
+    font-size: 1em;
+    margin-left: 3px;
+    word-break: break-all;
+    color: black;
+}
+
+li{
+    overflow: hidden;
+    margin-top: 10px;
+    display: flex;
+}
